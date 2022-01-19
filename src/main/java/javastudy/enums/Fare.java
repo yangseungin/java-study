@@ -1,4 +1,4 @@
-package enums;
+package javastudy.enums;
 
 enum Fare {
     BUS(1200),

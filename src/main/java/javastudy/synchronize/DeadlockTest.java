@@ -1,4 +1,4 @@
-package synchronize;
+package javastudy.synchronize;
 
 public class DeadlockTest {
     public static void main(String[] args) {

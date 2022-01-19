@@ -1,8 +1,6 @@
-package io;
+package javastudy.io;
 
 import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
 import java.io.*;
 
 public class SystemTest {

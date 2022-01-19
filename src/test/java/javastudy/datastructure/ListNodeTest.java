@@ -1,4 +1,4 @@
-package datastructure;
+package javastudy.datastructure;
 
 import junit.framework.TestCase;
 import org.junit.Before;

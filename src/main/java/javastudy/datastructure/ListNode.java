@@ -1,4 +1,4 @@
-package datastructure;
+package javastudy.datastructure;
 
 import java.util.Objects;
 

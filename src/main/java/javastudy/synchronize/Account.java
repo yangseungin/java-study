@@ -1,4 +1,4 @@
-package synchronize;
+package javastudy.synchronize;
 
 public class Account {
     public static void main(String[] args) {

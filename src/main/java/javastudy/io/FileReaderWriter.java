@@ -1,4 +1,4 @@
-package io;
+package javastudy.io;
 
 import java.io.*;
 

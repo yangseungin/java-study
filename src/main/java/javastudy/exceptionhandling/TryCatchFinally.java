@@ -1,4 +1,4 @@
-package exceptionhandling;
+package javastudy.exceptionhandling;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

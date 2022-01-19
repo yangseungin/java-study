@@ -1,4 +1,4 @@
-package enums;
+package javastudy.enums;
 
 import java.util.EnumSet;
 

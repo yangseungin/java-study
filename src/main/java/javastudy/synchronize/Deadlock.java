@@ -1,4 +1,4 @@
-package synchronize;
+package javastudy.synchronize;
 
 public class Deadlock {
     Object lock1 = new Object();

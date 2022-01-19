@@ -1,4 +1,4 @@
-package io;
+package javastudy.io;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class FileOutputStreamSample {
     public static void main(String[] args) {
-        File file = new File("/Users/yangseung-in/Desktop/test.txt");
+        File file = new File("/Users/yangseung-in/Desktop/javastudy.test.txt");
 
         try (FileOutputStream fos = new FileOutputStream(file)) {
             int data;
