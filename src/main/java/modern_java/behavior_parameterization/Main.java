@@ -23,6 +23,21 @@ public class Main {
 
         List<Book> itBooks2 = filterBooks(books, new ITBookPredicate());
 
+        //익명 클래스 사용 - IT Book 예시
+        List<Book> itBooks3 = filterBooks(books, new BookPredicate() {
+            @Override
+            public boolean filter(Book book) {
+                return "IT".equals(book.getField());
+            }
+        });
+        //람다식 사용
+        List<Book> itBooks4 = filterBooks(books, book -> "IT".equals(book.getField()));
+
+        //리스트 형식 추상화
+        List<Book> itBooks5 = filter(books, book -> "IT".equals(book.getField()));
+        List<Book> books2021 = filter(books, book -> 2021 == book.getYear());
+        List<Book> effectiveJava = filter(books, book -> "조슈아 블로크".equals(book.getAuthor()));
+
 
     }
 
@@ -76,6 +91,17 @@ public class Main {
         for (Book book : inventory) {
             if (predicate.filter(book)) {
                 result.add(book);
+            }
+        }
+        return result;
+    }
+
+    //리스트 형식 추상화
+    public static <T> List<T> filter(List<T> list, Predicate<T> p) {
+        List<T> result = new ArrayList<>();
+        for (T e : list) {
+            if (p.filter(e)) {
+                result.add(e);
             }
         }
         return result;
