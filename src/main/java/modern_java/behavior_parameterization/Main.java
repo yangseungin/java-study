@@ -5,8 +5,6 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
-enum Field {IT, HISTORY, FICTION}
-
 public class Main {
     public static void main(String[] args) {
         List<Book> books = asList(new Book("이펙티브 자바", "조슈아 블로크", 2018, "IT"),
@@ -22,6 +20,8 @@ public class Main {
         List<Book> year2021Books = filterBooksByYear(books, 2021);
 
         List<Book> modenJavaBook = allFilterBooks(books, "모던 자바 인 액션", "라울-게이브리얼 우르마", 2019, "IT");
+
+        List<Book> itBooks2 = filterBooks(books, new ITBookPredicate());
 
 
     }
@@ -64,6 +64,17 @@ public class Main {
         List<Book> result = new ArrayList<>();
         for (Book book : inventory) {
             if (book.getName().equals(name) || book.getAuthor().equals(author) || book.getYear() == year || book.getField().equals(field)) {
+                result.add(book);
+            }
+        }
+        return result;
+    }
+
+    //동작 파라미터화
+    public static List<Book> filterBooks(List<Book> inventory, BookPredicate predicate) {
+        List<Book> result = new ArrayList<>();
+        for (Book book : inventory) {
+            if (predicate.filter(book)) {
                 result.add(book);
             }
         }
