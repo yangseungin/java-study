@@ -7,11 +7,7 @@ import static java.util.Arrays.asList;
 
 public class Main {
     public static void main(String[] args) {
-        List<Book> books = asList(new Book("이펙티브 자바", "조슈아 블로크", 2018, "IT"),
-                new Book("모던 자바 인 액션", "라울-게이브리얼 우르마", 2019, "IT"),
-                new Book("이순신의 바다", "황현필", 2021, "History"),
-                new Book("갈매기의 꿈", "리처드 바크", 2020, "Fiction")
-        );
+        List<Book> books = initBooks();
         List<Book> itBooks = filterITBooks(books);
 
         List<Book> historyBooks = filterBooksByField(books, "History");
@@ -26,7 +22,7 @@ public class Main {
         //익명 클래스 사용 - IT Book 예시
         List<Book> itBooks3 = filterBooks(books, new BookPredicate() {
             @Override
-            public boolean filter(Book book) {
+            public boolean test(Book book) {
                 return "IT".equals(book.getField());
             }
         });
@@ -39,6 +35,15 @@ public class Main {
         List<Book> effectiveJava = filter(books, book -> "조슈아 블로크".equals(book.getAuthor()));
 
 
+
+    }
+
+    private static List<Book> initBooks() {
+        return asList(new Book("이펙티브 자바", "조슈아 블로크", 2018, "IT"),
+                new Book("모던 자바 인 액션", "라울-게이브리얼 우르마", 2019, "IT"),
+                new Book("이순신의 바다", "황현필", 2021, "History"),
+                new Book("갈매기의 꿈", "리처드 바크", 2020, "Fiction")
+        );
     }
 
     //it분야 필터링
@@ -89,7 +94,7 @@ public class Main {
     public static List<Book> filterBooks(List<Book> inventory, BookPredicate predicate) {
         List<Book> result = new ArrayList<>();
         for (Book book : inventory) {
-            if (predicate.filter(book)) {
+            if (predicate.test(book)) {
                 result.add(book);
             }
         }
@@ -100,7 +105,7 @@ public class Main {
     public static <T> List<T> filter(List<T> list, Predicate<T> p) {
         List<T> result = new ArrayList<>();
         for (T e : list) {
-            if (p.filter(e)) {
+            if (p.test(e)) {
                 result.add(e);
             }
         }
