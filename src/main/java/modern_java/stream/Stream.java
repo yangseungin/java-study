@@ -1,4 +1,4 @@
-package modern_java.lambda;
+package modern_java.stream;
 
 import modern_java.behavior_parameterization.Book;
 
