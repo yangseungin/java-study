@@ -6,6 +6,16 @@ public class Book {
     private Integer year;   //출판년도
     private String field;   //분야
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", year=" + year +
+                ", field='" + field + '\'' +
+                '}';
+    }
+
     public Book(String name, String author, Integer year, String field) {
         this.name = name;
         this.author = author;
